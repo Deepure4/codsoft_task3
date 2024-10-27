@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="calculator.css" rel="stylesheet">
+</head>
+<body>
+    <div class="calcy">
+        <input type="text" id="screen" disabled>
+        <div class="calcybuttons">
+            <button onclick="remove()">C</button>
+            <button onclick="deleteEnd()">DEL</button>
+            <button onclick="append('/')">/</button>
+            <button onclick="append('*')">*</button>
+            <button onclick="append('7')">7</button>
+            <button onclick="append('8')">8</button>
+            <button onclick="append('9')">9</button>
+            <button onclick="append('-')">-</button>
+            <button onclick="append('4')">4</button>
+            <button onclick="append('5')">5</button>
+            <button onclick="append('6')">6</button>
+            <button onclick="append('+')">+</button>
+            <button onclick="append('1')">1</button>
+            <button onclick="append('2')">2</button>
+            <button onclick="append('3')">3</button>
+            <button onclick="calculateresult()">=</button>
+            <button onclick="append('0')" class="zerobutton">0</button>
+            <button onclick="append('.')">.</button>
+        </div>
+    </div>
+
+    <script>
+        let show = document.getElementById('screen');
+
+        function append(element) {
+            show.value += element;
+        }
+
+        function remove() {
+            show.value = '';
+        }
+
+        function deleteEnd() {
+            show.value = show.value.slice(0, -1);
+        }
+
+        function calculateresult() {
+            try {
+                show.value = eval(show.value);
+            } catch (e) {
+                show.value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
